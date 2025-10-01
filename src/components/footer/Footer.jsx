@@ -45,14 +45,20 @@ function Footer() {
       <div class="lg:w-1/4 md:w-1/2 w-full px-4">
         <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Campany</h2>
         <nav class="list-none mb-10">
-          <li>
-            <a class="text-gray-600 hover:text-gray-800">First Link</a>
+            <li>
+            <a href="https://www.facebook.com/p/GRJ-Jaro-Pawnshop-Corp-100067998025076/"class="text-gray-600 hover:text-gray-800">GRJ Jaro Pawnshop</a>
           </li>
           <li>
-            <a class="text-gray-600 hover:text-gray-800">Second Link</a>
+            <a href="https://www.facebook.com/p/GRJ-JARO-Readymix-Corp-100064041009731/"class="text-gray-600 hover:text-gray-800"> GRJ Jaro Readymix</a>
           </li>
           <li>
-            <a class="text-gray-600 hover:text-gray-800">Third Link</a>
+            <a href="https://kansaiueno.grj.com.ph/index.php" class="text-gray-600 hover:text-gray-800">kansai Ueno</a>
+          </li>
+          <li>
+            <a class="text-gray-600 hover:text-gray-800">South4 Builders</a>
+          </li>
+          <li>
+            <a href="https://jaromed.com.ph/"class="text-gray-600 hover:text-gray-800">Jaromed</a>
           </li>
         </nav>
       </div>
