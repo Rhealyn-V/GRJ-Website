@@ -115,8 +115,8 @@ function Navbar() {
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
           <Popover className="relative">
             <PopoverButton className={`flex items-center gap-x-1 text-sm font-semibold ${
-    isScrolled ? 'text-gray-800 hover:text-gray-900' : 'text-white hover:text-gray-200'
-  }`}>
+            isScrolled ? 'text-gray-800 hover:text-gray-900' : 'text-white hover:text-gray-200'
+          }`}>
               Product
               <ChevronDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
             </PopoverButton>
@@ -156,18 +156,18 @@ function Navbar() {
             </PopoverPanel>
           </Popover>
           <a href="#" className={`text-sm font-semibold transition-colors duration-300 ${
-    isScrolled ? 'text-gray-800 hover:text-gray-900' : 'text-white hover:text-gray-200'
-  }`}>
+            isScrolled ? 'text-gray-800 hover:text-gray-900' : 'text-white hover:text-gray-200'
+          }`}>
             Contact
           </a>
           <Link to="/careers" className={`text-sm font-semibold transition-colors duration-300 ${
-    isScrolled ? 'text-gray-800 hover:text-gray-900' : 'text-white hover:text-gray-200'
-  }`}>
+            isScrolled ? 'text-gray-800 hover:text-gray-900' : 'text-white hover:text-gray-200'
+          }`}>
            Careers
           </Link>
           <a href="#" className={`text-sm font-semibold transition-colors duration-300 ${
-    isScrolled ? 'text-gray-800 hover:text-gray-900' : 'text-white hover:text-gray-200'
-  }`}>
+              isScrolled ? 'text-gray-800 hover:text-gray-900' : 'text-white hover:text-gray-200'
+            }`}>
             About Us
           </a>
         </PopoverGroup>
@@ -184,9 +184,9 @@ function Navbar() {
         <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full max-w-sm overflow-y-auto bg-white dark:bg-gray-900 p-6 sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <div  onClick={() => {
-    handleLogoClick();
-    setMobileMenuOpen(false); // Close mobile menu too
-  }} className="-m-1.5 p-1.5 cursor-pointer">
+                handleLogoClick();
+                setMobileMenuOpen(false); // Close mobile menu too
+              }} className="-m-1.5 p-1.5 cursor-pointer">
               <span className="sr-only">GRJ Group</span>
               <img
                 className="h-8 w-auto opacity-90"

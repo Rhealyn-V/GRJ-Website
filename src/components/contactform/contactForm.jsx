@@ -25,9 +25,9 @@ const ContactForm = () => {
       <div className="container px-5 py-24 mx-auto">
         {/* Heading and description */}
         <div className="flex flex-col text-center w-full mb-12">
-          <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
             Contact Us
-          </h1>
+          </h2>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-700">
             We’d love to hear from you! At GRJ Group of Company, we’re committed to delivering exceptional service and building lasting partnerships. Whether you have a question, need more information about our services, or are ready to start a project with us, our team is here to help. Let’s connect and explore how GRJ Group of Company can support your goals.
           </p>
