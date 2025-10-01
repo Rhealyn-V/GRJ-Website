@@ -41,12 +41,12 @@ const people = [
 
 function Teams() {
   return (
-    <div className="py-16 sm:py-24 bg-gray-900 text-white">
+     <div className="py-16 sm:py-24 bg-white text-gray-900">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Intro Card */}
-        <div className="mb-12 max-w-4xl mx-auto bg-white/5 p-6 rounded-xl shadow-lg ring-1 ring-white/10 backdrop-blur text-center">
+        <div className="mb-12 max-w-4xl mx-auto bg-gray-100 p-6 rounded-xl shadow-lg ring-1 ring-gray-300 text-center">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Meet our leadership</h2>
-          <p className="mt-4 text-gray-300 text-lg">
+          <p className="mt-4 text-gray-700 text-lg">
             We’re a dynamic group of individuals who are passionate about what we do and dedicated to delivering the
             best results for our clients.
           </p>
@@ -56,18 +56,18 @@ function Teams() {
           {people.map((person) => (
             <div
               key={person.name}
-              className="group bg-white/5 p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:bg-white/10"
+              className="group bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:bg-indigo-50"
             >
               <div className="flex flex-col items-center text-center">
                 <img
-                  className="w-24 h-24 rounded-full mb-4 border-2 border-white/20"
+                  className="w-24 h-24 rounded-full mb-4 border-2 border-indigo-200"
                   src={person.imageUrl}
                   alt={person.name}
                 />
-                <h3 className="text-lg font-semibold text-white group-hover:text-indigo-400">
+                <h3 className="text-lg font-semibold text-gray-900 group-hover:text-indigo-600">
                   {person.name}
                 </h3>
-                <p className="text-sm text-gray-400">{person.role}</p>
+                <p className="text-sm text-gray-600">{person.role}</p>
               </div>
             </div>
           ))}
