@@ -25,10 +25,11 @@ function Careers() {
     {
       title: "GRJ Enterprise",
       logo: assets.Enterprise,
+      background: assets.buildingLogo,
       color: "from-sky-700 to-sky-700",
       link: "https://www.facebook.com/p/GRJ-JARO-Readymix-Corp-100064041009731/",
       roles: [
-        { icon: <FaClipboardList />, label: "Administrative Assistant" },
+        { icon: <FaClipboardList />, label: "Distributors of cement and ready-mix" },
         { icon: <FaLaptopCode />, label: "IT Support Specialist" },
         { icon: <FaChartLine />, label: "Business Development Officer" },
         { icon: <FaProjectDiagram />, label: "Logistics Coordinator" },
@@ -38,6 +39,7 @@ function Careers() {
       title: "GRJ ReadyMix",
       logo: assets.Readymix,
       color: "from-emerald-700 to-emerald-700",
+      background: assets.Readymix_background,
       link: "https://www.facebook.com/p/GRJ-JARO-Readymix-Corp-100064041009731/",
       roles: [
         { icon: <FaTruck />, label: "Truck Driver" },
@@ -50,6 +52,7 @@ function Careers() {
       title: "Jaromed Medical Clinic",
       logo: assets.Jaromed,
       color: "from-blue-700 to-green-500",
+      background: assets.Jaromed_background,  
       link: "https://jaromed.com.ph/",
       roles: [
         { icon: <FaUserMd />, label: "Medical Doctor" },
@@ -62,6 +65,7 @@ function Careers() {
       title: "South4 Builders",
       logo: assets.South4Builders,
       color: "from-red-700 to-gray-900",
+      background: assets.South4buildersbackground,
       link: "https://www.example.com/south4-careers",
       roles: [
         { icon: <FaHardHat />, label: "Civil Engineer" },
@@ -74,6 +78,7 @@ function Careers() {
       title: "GRJ Pawnshop",
       logo: assets.Pawnshop,
       color: "from-red-700 to-red-700",
+      background: assets.Pawnshop_background,
       link: "https://www.facebook.com/p/GRJ-Jaro-Pawnshop-Corp-100067998025076/",
       roles: [
         { icon: <FaCashRegister />, label: "Cashier" },
@@ -86,6 +91,7 @@ function Careers() {
       title: "Kansai Ueno",
       logo: assets.KansaiUeno,
       color: "from-green-500 to-green-700",
+      background: assets.kansai,
       link: "https://kansaiueno.grj.com.ph/index.php",
       roles: [
         { icon: <FaWarehouse />, label: "Warehouse Staff" },
@@ -107,7 +113,12 @@ function Careers() {
         {careers.map((career, index) => (
           <div
             key={index}
-            className="bg-white rounded-2xl shadow-lg p-6 border border-gray-200 hover:shadow-2xl transform hover:-translate-y-2 transition duration-300"
+            className="relative rounded-2xl shadow-lg p-6 border border-gray-200 hover:shadow-2xl transform hover:-translate-y-2 transition duration-300 overflow-hidden"
+            style={{
+              backgroundImage: `url(${career.background})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
           >
             {/* Logo + Title */}
             <div className="flex items-center mb-6 space-x-4">
@@ -119,33 +130,36 @@ function Careers() {
               <h3
                 className={`text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${career.color}`}
               >
-                {career.title}
               </h3>
             </div>
 
             {/* Roles */}
-            <ul className="space-y-3 mb-6">
-              {career.roles.map((role, idx) => (
-                <li
-                  key={idx}
-                  className={`flex items-center text-gray-700 hover:text-sky-500 transition duration-200 ${career.color}`}
-                >
-                  <span className="text-lg mr-3">{role.icon}</span>
-                  {role.label}
-                </li>
-              ))}
-            </ul>
+        <div className="w-full md:w-3/4 lg:w-1/2 h-auto mb-6 rounded-xl bg-white/80 dark:bg-black/60 p-4 shadow-md">
+          <ul className="space-y-3">
+            {career.roles.map((role, idx) => (
+              <li
+                key={idx}
+                className="flex items-center text-gray-900 dark:text-white hover:text-sky-500 transition duration-200"
+              >
+                <span className="text-lg mr-3">{role.icon}</span>
+                {role.label}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+
 
             {/* Apply Button */}
+           <div className="flex justify-end"> 
             <a
               href={career.link}
               target="_blank"
               rel="noopener noreferrer"
-                className="block rounded-lg px-3 py-2 text-base font-bold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">           
-              Explore Careers <span className="ml-2 transform transition-transform duration-300 group-hover:translate-x-1">
-                    →
-                </span>
+                className=" rounded-lg px-3 py-2 text-base font-bold text-gray-900 dark:text-white bg-white/60 dark:bg-black/60 hover:bg-sky-500 hover:text-white border border-gray-300 hover:border-transparent transition duration-300 inline-flex items-center">           
+              Explore Careers <span className="ml-2">→</span>
             </a>
+          </div>
           </div>
         ))}
       </div>
