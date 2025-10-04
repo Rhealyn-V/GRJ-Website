@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useState } from 'react';
-import { useNavigate,Link } from 'react-router-dom';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import { assets } from '../../assets/assets.js';
 import  BasicButtons  from './button/Button.jsx';
 import {
@@ -67,6 +68,15 @@ function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+  
+  const isLightBgPage = location.pathname === '/careers';
+
+  const textColorClass = isLightBgPage
+  ? 'text-gray-800 hover:text-gray-900' // dark text for light bg pages
+  : isScrolled
+    ? 'text-gray-800 hover:text-gray-900' // scrolled: dark text
+    : 'text-white hover:text-gray-200'; // default: light text
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -75,13 +85,14 @@ function Navbar() {
   }, []);
 
   const handleLogoClick = () => {
-  navigate('/'); // Go to the homepage
+  navigate('/');
   setTimeout(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top smoothly
   }, 100); // Wait a moment for the navigation to happen
 };
+
   return (
-    <header className={`fixed w-full z-50  ${
+    <header className={`fixed w-full z-50 ${
       isScrolled ? 'bg-white/30 backdrop-blur-md transition-colors duration-300' : 'bg-transparent transition-colors duration-300'
     }`}>
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-8" aria-label="Global">
@@ -112,64 +123,79 @@ function Navbar() {
         </div>
 
         {/* Desktop Menu */}
-        <PopoverGroup className="hidden lg:flex lg:gap-x-12">
+        <PopoverGroup className="hidden lg:flex lg:items-center lg:gap-x-10">
+          {/* Product Popover */}
           <Popover className="relative">
-            <PopoverButton className={`flex items-center gap-x-1 text-sm font-semibold ${
-            isScrolled ? 'text-gray-800 hover:text-gray-900' : 'text-white hover:text-gray-200'
-          }`}>
-              Product
-              <ChevronDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-            </PopoverButton>
+            {({ open }) => (
+              <>
+                <PopoverButton
+                  className={`flex items-center gap-1 text-sm font-semibold transition-colors duration-300 ${textColorClass}`}
+                >
+                  Product
+                  <ChevronDownIcon
+                    className={`h-4 w-4 text-gray-400 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+                    aria-hidden="true"
+                  />
+                </PopoverButton>
 
-            <PopoverPanel className="absolute left-1/2 z-10 mt-3 w-screen max-w-md -translate-x-1/2 rounded-3xl bg-white dark:bg-gray-900 shadow-lg ring-1 ring-gray-900/5">
-              <div className="p-4">
-                {products.map((item) => (
-                  <div
-                    key={item.name}
-                    className="group relative flex items-center gap-x-4 rounded-lg p-4 hover:bg-gray-50 dark:hover:bg-gray-800"
-                  >
-                    <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-gray-50 dark:bg-gray-800 group-hover:bg-white dark:group-hover:bg-gray-700">
-                      <item.icon className="h-6 w-6 text-gray-600 dark:text-gray-300 group-hover:text-indigo-600" />
-                    </div>
-                    <div>
-                      <a href={item.href} className="block font-semibold text-gray-900 dark:text-white">
-                        {item.name}
-                        <span className="absolute inset-0" />
-                      </a>
-                      <p className="mt-1 text-gray-600 dark:text-gray-400">{item.description}</p>
-                    </div>
+                <PopoverPanel className="absolute left-1/2 z-10 mt-3 w-screen max-w-md -translate-x-1/2 rounded-3xl bg-white dark:bg-gray-900 shadow-lg ring-1 ring-gray-900/5">
+                  <div className="p-4">
+                    {products.map((item) => (
+                      <div
+                        key={item.name}
+                        className="group relative flex items-center gap-x-4 rounded-lg p-4 hover:bg-gray-50 dark:hover:bg-gray-800"
+                      >
+                        <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-gray-50 dark:bg-gray-800 group-hover:bg-white dark:group-hover:bg-gray-700">
+                          <item.icon className="h-6 w-6 text-gray-600 dark:text-gray-300 group-hover:text-indigo-600" />
+                        </div>
+                        <div>
+                          <a href={item.href} className="block font-semibold text-gray-900 dark:text-white">
+                            {item.name}
+                            <span className="absolute inset-0" />
+                          </a>
+                          <p className="mt-1 text-gray-600 dark:text-gray-400">{item.description}</p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-              <div className="grid grid-cols-2 divide-x divide-gray-200 dark:divide-gray-800 bg-gray-50 dark:bg-gray-800">
-                {callsToAction.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-                  >
-                    <item.icon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-                    {item.name}
-                  </a>
-                ))}
-              </div>
-            </PopoverPanel>
+                  <div className="grid grid-cols-2 divide-x divide-gray-200 dark:divide-gray-800 bg-gray-50 dark:bg-gray-800">
+                    {callsToAction.map((item) => (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                      >
+                        <item.icon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                        {item.name}
+                      </a>
+                    ))}
+                  </div>
+                </PopoverPanel>
+              </>
+            )}
           </Popover>
-          <a href="#" className={`text-sm font-semibold transition-colors duration-300 ${
-            isScrolled ? 'text-gray-800 hover:text-gray-900' : 'text-white hover:text-gray-200'
-          }`}>
+
+          {/* Static Links */}
+          <HashLink
+            smooth
+            to="/#contact"
+            className={`text-sm font-semibold transition-colors duration-300 ${textColorClass}`}
+          >
             Contact
-          </a>
-          <Link to="/careers" className={`text-sm font-semibold transition-colors duration-300 ${
-            isScrolled ? 'text-gray-800 hover:text-gray-900' : 'text-white hover:text-gray-200'
-          }`}>
-           Careers
+          </HashLink>
+          <Link
+            to="/careers"
+            className={`text-sm font-semibold transition-colors duration-300 ${textColorClass}`}
+          >
+            Careers
           </Link>
-          <a href="#" className={`text-sm font-semibold transition-colors duration-300 ${
-              isScrolled ? 'text-gray-800 hover:text-gray-900' : 'text-white hover:text-gray-200'
-            }`}>
+          <HashLink
+            smooth
+            to="/#about-us"
+            className={`text-sm font-semibold transition-colors duration-300 ${textColorClass}`}
+          >
             About Us
-          </a>
+          </HashLink>
         </PopoverGroup>
 
         {/* Login Button */}
@@ -229,19 +255,21 @@ function Navbar() {
               )}
             </Disclosure>
 
-            <a href="#" className="block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+            <HashLink smooth
+            to="/#contact" className="block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
               Contact
-            </a>
+            </HashLink>
             <Link to="/careers" className="block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
               Careers
             </Link>
-            <a href="#" className="block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+            <HashLink smooth
+             to="/#about-us" className="block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
               About Us
-            </a>
+            </HashLink>
 
             <div className="mt-6">
               <a href="#" className="block rounded-lg px-3 py-2.5 text-base font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                Get started
+                Apply Now
               </a>
             </div>
           </div>

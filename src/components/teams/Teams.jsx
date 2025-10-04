@@ -2,40 +2,76 @@ import React from 'react';
 
 const people = [
   {
-    name: 'Leslie Alexander',
-    role: 'Co-Founder / CEO',
+    name: 'Mr. Gilbert A. Jaro',
+    role: 'President',
     imageUrl:
       'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
   },
   {
-    name: 'Michael Foster',
-    role: 'Co-Founder / CTO',
+    name: 'Ms. Ellaine Ann S. Jaro',
+    role: 'Executive Vice President',
     imageUrl:
       'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
   },
   {
-    name: 'Dries Vincent',
-    role: 'Business Relations',
+    name: 'Ms. Samantha Joyce L. Jaro',
+    role: 'Managing Director',
     imageUrl:
       'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
   },
   {
-    name: 'Lindsay Walton',
-    role: 'Front-end Developer',
+    name: 'Mr. Mariano B. Pascual',
+    role: 'Vice President - Sales',
     imageUrl:
       'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
   },
   {
-    name: 'Courtney Henry',
-    role: 'Designer',
+    name: 'Ms. Marilou Sarado',
+    role: 'Regional Sales & Operation Manager',
     imageUrl:
       'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
   },
   {
-    name: 'Tom Cook',
-    role: 'Director of Product',
+    name: 'Ms. Joyrish S. Panti',
+    role: 'Admin & HR Personnel Head/EA',
     imageUrl:
       'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+  },
+    {
+    name: 'Ms. Estrellits B. Isaac',
+    role: 'Sr. Treasury Head',
+    imageUrl:
+      'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+  },
+  {
+    name: 'Ms. Mishell Floresta',
+    role: 'Inventory & Planning Head',
+    imageUrl:
+      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+  },
+   {
+    name: 'Mr. Eduardo Alsa',
+    role: 'Area Sales Manager (Cavite & Laguna)',
+    imageUrl:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+  },
+  {
+    name: 'Mr. Felix Sapico',
+    role: 'Area Sales Manager (Batangas)',
+    imageUrl:
+      'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+  },
+  {
+    name: 'Ms. Angelica Narag',
+    role: 'Area Sales Manager (Ibaan, Batangas)',
+    imageUrl:
+      'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+  },
+  {
+    name: 'Mr. Ronnel Barrera',
+    role: 'Area Sales Manager (Laguna)',
+    imageUrl:
+      'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
   },
 ];
 

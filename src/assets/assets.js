@@ -12,6 +12,7 @@ import Jaromed_background from './images/Jaromed_background.png';
 import South4buildersbackground from './images/South4-Builders_background.jpg';
 import Readymix_background from './images/Readymix_background.jpg';
 import Pawnshop_background from './images/Pawnshop_background.jpg';
+import eaglecement from './images/eaglecement.png';
 
 export const assets = {
   logo,
@@ -28,4 +29,5 @@ export const assets = {
   South4buildersbackground,
   Readymix_background,
   Pawnshop_background,
+  eaglecement,
 }

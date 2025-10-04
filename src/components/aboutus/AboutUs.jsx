@@ -1,21 +1,15 @@
 import React from 'react'
-
-
-const links = [
-  { name: 'Open roles', href: '#' },
-  { name: 'Internship program', href: '#' },
-  { name: 'Our values', href: '#' },
-  { name: 'Meet our leadership', href: '#' },
-]
+import { HashLink } from 'react-router-hash-link';
+import { Link } from 'react-router-dom';
 const stats = [
-  { name: 'Offices worldwide', value: '12' },
-  { name: 'Full-time colleagues', value: '300+' },
+  { name: 'Offices worldwide', value: '23' },
+  { name: 'Full-time colleagues', value: '400+' },
   { name: 'Hours per week', value: '40' },
-  { name: 'Paid time off', value: 'Unlimited' },
+  { name: 'Schedule', value: <Link to="/Office_Hours" className="hover:text-sky-700">Office Hours</Link> },
 ]
 function AboutUs() {
   return (
-    <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
+    <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32" id="about-us">
       <img
         alt=""
         src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-y=.8&w=2830&h=1500&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply"
@@ -48,19 +42,50 @@ function AboutUs() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h2 className="text-5xl font-semibold tracking-tight text-white sm:text-7xl">Work with us</h2>
-          <p className="mt-8 text-lg font-medium text-pretty text-gray-300 sm:text-xl/8">
-            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet
-            fugiat veniam occaecat fugiat.
+          <p className="mt-8 text-lg font-medium text-pretty text-gray-300 sm:text-xl/8 text-justify">
+            At GRJ JARO ENTERPRISE INC., objective is to maintain our customer’s trust by 
+            delivering the best quality products which meet their expectations and set us apart in the market. 
+            We will also deliver the best possible service experience to our customers by exceeding their 
+            expectations and keeping our promises. We achieve his through our exceptional people, 
+            excellent equipment’s, use of only the very best raw materials and robust systems that are 
+            continuously improved.
           </p>
         </div>
         <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
-          <div className="grid grid-cols-1 gap-x-8 gap-y-6 text-base/7 font-semibold text-white sm:grid-cols-2 md:flex lg:gap-x-10">
-            {links.map((link) => (
-              <a key={link.name} href={link.href}>
-                {link.name} <span aria-hidden="true">&rarr;</span>
-              </a>
-            ))}
-          </div>
+  <div className="grid grid-cols-1 gap-x-8 gap-y-6 text-base/7 font-semibold text-white sm:grid-cols-2 md:flex lg:gap-x-10">
+
+    {/* Static links (not part of the loop) */}
+    <HashLink
+      smooth
+      to="/Open_roles"
+      className="text-sm font-semibold transition-colors duration-300 hover:text-sky-700"
+    >
+      Open Roles →
+    </HashLink>
+
+    <HashLink
+      to="/Internship_program"
+      className="text-sm font-semibold transition-colors duration-300 hover:text-sky-700"
+    >
+      Internship program →
+    </HashLink>
+
+    <HashLink
+      smooth
+      to="/Our_values"
+      className="text-sm font-semibold transition-colors duration-300 hover:text-sky-700"
+    >
+      Our values →
+    </HashLink>
+    <HashLink
+      to="/General_information"
+      className="text-sm font-semibold transition-colors duration-300 hover:text-sky-700"
+    >
+      More Information →
+    </HashLink>
+    
+  </div>
+
           <dl className="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
             {stats.map((stat) => (
               <div key={stat.name} className="flex flex-col-reverse gap-1">

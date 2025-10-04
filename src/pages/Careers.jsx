@@ -27,9 +27,9 @@ function Careers() {
       logo: assets.Enterprise,
       background: assets.buildingLogo,
       color: "from-sky-700 to-sky-700",
-      link: "https://www.facebook.com/p/GRJ-JARO-Readymix-Corp-100064041009731/",
+      link: "",
       roles: [
-        { icon: <FaClipboardList />, label: "Distributors of cement and ready-mix" },
+        { icon: <FaClipboardList />, label: "Distributors" },
         { icon: <FaLaptopCode />, label: "IT Support Specialist" },
         { icon: <FaChartLine />, label: "Business Development Officer" },
         { icon: <FaProjectDiagram />, label: "Logistics Coordinator" },
@@ -42,6 +42,7 @@ function Careers() {
       background: assets.Readymix_background,
       link: "https://www.facebook.com/p/GRJ-JARO-Readymix-Corp-100064041009731/",
       roles: [
+        { icon: <FaProjectDiagram />, label: "Readymix" },
         { icon: <FaTruck />, label: "Truck Driver" },
         { icon: <FaHardHat />, label: "Plant Operator" },
         { icon: <FaHardHat />, label: "Quality Control Engineer" },
@@ -66,8 +67,9 @@ function Careers() {
       logo: assets.South4Builders,
       color: "from-red-700 to-gray-900",
       background: assets.South4buildersbackground,
-      link: "https://www.example.com/south4-careers",
+      link: "",
       roles: [
+        { icon: <FaHardHat />, label: "Construction" },
         { icon: <FaHardHat />, label: "Civil Engineer" },
         { icon: <FaDraftingCompass />, label: "Architect" },
         { icon: <FaProjectDiagram />, label: "Project Manager" },
@@ -97,14 +99,14 @@ function Careers() {
         { icon: <FaWarehouse />, label: "Warehouse Staff" },
         { icon: <FaProjectDiagram />, label: "Production Operator" },
         { icon: <FaHardHat />, label: "Quality Assurance Specialist" },
-        { icon: <FaChartLine />, label: "Sales Representative" },
+        { icon: <FaChartLine />, label: "Buy and Sell" },
       ],
     },
   ];
 
   return (
-    <div className="bg-gray-50 py-20 px-6 md:px-16" id="careers">
-      <h2 className="text-4xl font-bold text-center text-gray-700 mb-8">
+    <div className="bg-gray-50 py-40 px-6 md:px-16" id="careers">
+      <h2 className="text-4xl font-bold text-center text-gray-700 mb-15">
         CAREER OPPORTUNITIES
       </h2>
 

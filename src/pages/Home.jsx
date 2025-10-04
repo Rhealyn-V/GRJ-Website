@@ -9,9 +9,9 @@ function Home() {
     <>
     <div className="bg-gray-50 min-h-screen">
     <Hero />
+    {/*<Teams />*/}
+     <AboutUs /> 
     <ContactForm />
-    <Teams />
-    <AboutUs />
     </div>
     </>
   
