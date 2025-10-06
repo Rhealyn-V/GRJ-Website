@@ -9,6 +9,7 @@ import Internship_program from './components/aboutus/Internship_program.jsx'
 import Our_values from './components/aboutus/Our_values.jsx'
 import General_information from './components/aboutus/General_information.jsx'
 import Office_Hours from './components/aboutus/Office_Hours.jsx'
+import Pawnshop from './pages/Branch/Pawnshop.jsx'
 
 const App = () => {
 
@@ -23,6 +24,7 @@ const App = () => {
         <Route path='our_values' element={<Our_values/>}/>
         <Route path='general_information' element={<General_information/>}/>
         <Route path='Office_Hours' element={<Office_Hours/>}/>
+        <Route path='pawnshop' element={<Pawnshop/>}/>
       </Route>
     )
   )

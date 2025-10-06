@@ -5,7 +5,7 @@ const stats = [
   { name: 'Offices worldwide', value: '23' },
   { name: 'Full-time colleagues', value: '400+' },
   { name: 'Hours per week', value: '40' },
-  { name: 'Schedule', value: <Link to="/Office_Hours" className="hover:text-sky-700">Office Hours</Link> },
+  { name: 'Schedule', value: <Link to="/Office_Hours" target='blank' className="hover:text-sky-700">Office Hours</Link> },
 ]
 function AboutUs() {
   return (

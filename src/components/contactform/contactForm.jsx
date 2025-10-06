@@ -1,11 +1,12 @@
-import { useState } from "react";
 import { FaMapMarkerAlt, FaPhone, FaEnvelope } from "react-icons/fa";
+import { useState } from "react";
+import React from "react";
+
 
 function Contact() {
   const [selectedBranch, setSelectedBranch] = useState(null);
-
   const branches = [
-    {
+     {
       name: "Dasmariñas, Cavite",
       link: "https://maps.google.com/?q=GRJ+Pawnshop+Dasmariñas+Cavite",
       description: "Located in the heart of Dasmariñas, this branch offers quick and reliable pawnshop services.",
@@ -71,67 +72,91 @@ function Contact() {
   ];
 
   return (
-    <section className="bg-gray-50 py-20" id="contact">
+    <section className="bg-gray-50 py-20 mt-8" id="contact">
       <div className="container mx-auto px-6 lg:px-16">
-
+        
         {/* HEADER */}
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-800">Contact Us</h2>
-          <p className="text-gray-600 mt-2">
-            We’d love to hear from you. Reach out through our branches or send us a message below.
-          </p>
+          <p className="text-gray-600 mt-2">We’d love to hear from you. Reach out through our branches or send us a message below.</p>
         </div>
 
-        {/* Branches Section */}
-        <div className="mt-16">
-          <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">Our Pawnshop Branches</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {branches.map((branch, index) => (
-              <div
-                key={index}
-                className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl transition"
-              >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          
+          {/* LEFT SIDE */}
+          <div className="space-y-8">
+            {/* Main Office */}
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <h3 className="text-xl font-semibold text-gray-700 flex items-center gap-2">
+                <FaMapMarkerAlt className="text-indigo-600" /> Main Office
+              </h3>
+              <p className="text-gray-600 mt-2">
                 <a
-                  href={branch.link}
+                  href="https://maps.google.com/?q=KM+27+Aguinaldo+Highway+Salitran+1+Dasmariñas+City"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="hover:text-sky-500 transition"
                 >
-                  <FaMapMarkerAlt className="text-indigo-600 text-2xl mx-auto mb-2" />
-                  <h4 className="font-semibold text-gray-700">{branch.name}</h4>
-                  <p className="text-sm text-sky-500 mt-1">View on Maps</p>
+                  KM 27 Aguinaldo Highway, <br />
+                  Salitran 1, <br /> Dasmariñas City
                 </a>
-                <button
-                  onClick={() => setSelectedBranch(branch)}
-                  className="mt-3 text-sm text-indigo-600 underline hover:text-indigo-800"
-                >
-                  Read More
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+              </p>
+            </div>
 
-      {/* MODAL */}
-      {selectedBranch && (
-        <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg shadow-lg max-w-lg w-full p-6 relative">
-            <button
-              onClick={() => setSelectedBranch(null)}
-              className="absolute top-3 right-3 text-gray-500 hover:text-gray-700 text-xl"
-            >
-              &times;
-            </button>
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">{selectedBranch.name}</h3>
-            <p className="text-gray-600 mb-4">{selectedBranch.description}</p>
-            <div className="space-y-2 text-gray-700">
-              <p className="flex items-center gap-2"><FaPhone className="text-indigo-600" /> {selectedBranch.phone}</p>
-              <p className="flex items-center gap-2"><FaEnvelope className="text-indigo-600" /> {selectedBranch.email}</p>
+            {/* Phone */}
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <h3 className="text-xl font-semibold text-gray-700 flex items-center gap-2">
+                <FaPhone className="text-indigo-600" /> Phone Numbers
+              </h3>
+              <ul className="mt-2 text-gray-600 space-y-1">
+                <li><b>Marketing & Sales:</b> (046) 471-6868</li>
+                <li><b>Accounting:</b> (046) 471-6562</li>
+                <li><b>HRD:</b> (046) 471-4969</li>
+              </ul>
+            </div>
+
+            {/* Emails */}
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <h3 className="text-xl font-semibold text-gray-700 flex items-center gap-2">
+                <FaEnvelope className="text-indigo-600" /> Emails
+              </h3>
+              <ul className="mt-2 text-gray-600 space-y-1">
+                <li><b>Marketing & Sales:</b> gjaro29@yahoo.com</li>
+                <li><b>Operations:</b> gjaro29@yahoo.com</li>
+                <li><b>Accounting:</b> grjjaro529@gmail.com</li>
+                <li><b>HRD:</b> grjjaro529@gmail.com</li>
+              </ul>
             </div>
           </div>
+
+          {/* RIGHT SIDE - Contact Form */}
+          <div className="bg-white shadow-lg rounded-lg p-8">
+            <h3 className="text-2xl font-bold text-gray-800 mb-6">Send us a Message</h3>
+            <form className="space-y-4">
+              <input
+                type="text"
+                placeholder="Your Name"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              />
+              <input
+                type="email"
+                placeholder="Your Email"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              />
+              <textarea
+                rows="5"
+                placeholder="Your Message"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              ></textarea>
+              <button className="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition">
+                Send Message
+              </button>
+            </form>
+          </div>
         </div>
-      )}
-    </section>
+
+      </div>
+      </section>
   );
 }
 

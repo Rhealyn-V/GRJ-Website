@@ -1,4 +1,4 @@
-import React from "react";
+
 import { assets } from "../assets/assets.js";
 
 
@@ -81,7 +81,7 @@ function Careers() {
       logo: assets.Pawnshop,
       color: "from-red-700 to-red-700",
       background: assets.Pawnshop_background,
-      link: "https://www.facebook.com/p/GRJ-Jaro-Pawnshop-Corp-100067998025076/",
+      link: "/pawnshop",
       roles: [
         { icon: <FaCashRegister />, label: "Cashier" },
         { icon: <FaUserTie />, label: "Appraiser" },

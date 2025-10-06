@@ -3,7 +3,7 @@ import { assets } from "../../assets/assets";
 
 function Office_Hours() {
   return (
-    <div className="flex justify-center items-center py-28 px-4">
+    <div className="flex justify-center items-center py-28 px-4 bg-sky-900 min-h-screen">
       <div className="w-full max-w-5xl bg-white relative text-black p-10 border border-gray-300 shadow-2xl rounded-lg">
 
         {/* Header */}
@@ -28,7 +28,7 @@ function Office_Hours() {
         </p>
 
         {/* Schedule Section */}
-        <div className="relative z-10 grid md:grid-cols-2 gap-8 text-center">
+        <div className="relative z-10 grid md:grid-cols-2 gap-8 text-center text-[18px]">
           {[
             {
               branch: "Head Office",
