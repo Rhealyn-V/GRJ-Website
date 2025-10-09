@@ -14,6 +14,10 @@ import Readymix_background from './images/Readymix_background.jpg';
 import Pawnshop_background from './images/Pawnshop_background.jpg';
 import eaglecement from './images/eaglecement.png';
 import Maps from './images/Maps.jpg';
+import Clip from './images/clip.mp4';
+import core_value from './images/core_value.png'
+import customer_service from './images/customer_service.jpg'
+import bluebackground from './images/bluebackground.jpg'
 
 export const assets = {
   logo,
@@ -32,4 +36,8 @@ export const assets = {
   Pawnshop_background,
   eaglecement,
   Maps,
+  Clip,
+  core_value,
+  customer_service,
+  bluebackground,
 }

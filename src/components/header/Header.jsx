@@ -1,282 +1,259 @@
-import { useEffect } from 'react'
-import { useState } from 'react';
-import { useNavigate, Link, useLocation } from 'react-router-dom';
-import { HashLink } from 'react-router-hash-link';
-import { assets } from '../../assets/assets.js';
-import  BasicButtons  from './button/Button.jsx';
+import { useEffect, useState } from "react"
+import { Link, useLocation, useNavigate } from "react-router-dom"
+import { HashLink } from "react-router-hash-link"
+import { assets } from "../../assets/assets.js"
+import { Button } from "@/components/ui/button"
 import {
-  Dialog,
-  DialogPanel,
-  Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
-  Popover,
-  PopoverButton,
-  PopoverGroup,
-  PopoverPanel,
-} from '@headlessui/react';
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuList,
+} from "@/components/ui/navigation-menu"
 import {
-  ArrowPathIcon,
-  Bars3Icon,
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
-  XMarkIcon,
-} from '@heroicons/react/24/outline';
-import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid';
-
-const products = [
-  {
-    name: 'Analytics',
-    description: 'Get a better understanding of your traffic',
-    href: '#',
-    icon: ChartPieIcon,
-  },
-  {
-    name: 'Engagement',
-    description: 'Speak directly to your customers',
-    href: '#',
-    icon: CursorArrowRaysIcon,
-  },
-  {
-    name: 'Security',
-    description: 'Your customers’ data will be safe and secure',
-    href: '#',
-    icon: FingerPrintIcon,
-  },
-  {
-    name: 'Integrations',
-    description: 'Connect with third-party tools',
-    href: '#',
-    icon: SquaresPlusIcon,
-  },
-  {
-    name: 'Automations',
-    description: 'Build strategic funnels that will convert',
-    href: '#',
-    icon: ArrowPathIcon,
-  },
-];
-
-const callsToAction = [
-  { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
-  { name: 'Contact sales', href: '#', icon: PhoneIcon },
-];
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet"
+import {
+  Menu,
+  Home,
+  Info,
+  Users,
+  Phone,
+  Briefcase,
+  Rocket,
+} from "lucide-react"
 
 function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const navigate = useNavigate();
-  const location = useLocation();
-  
-  const isLightBgPage = location.pathname === '/careers';
+  const [isScrolled, setIsScrolled] = useState(false)
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  const isLightBgPage = location.pathname === "/careers"
 
   const textColorClass = isLightBgPage
-  ? 'text-gray-800 hover:text-gray-900' // dark text for light bg pages
-  : isScrolled
-    ? 'text-gray-800 hover:text-gray-900' // scrolled: dark text
-    : 'text-white hover:text-gray-200'; // default: light text
+    ? "text-gray-800 hover:text-gray-900"
+    : isScrolled
+    ? "text-gray-800 hover:text-gray-900"
+    : "text-white hover:text-gray-200"
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    const handleScroll = () => setIsScrolled(window.scrollY > 50)
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   const handleLogoClick = () => {
-  navigate('/');
-  setTimeout(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top smoothly
-  }, 100); // Wait a moment for the navigation to happen
-};
+    navigate("/")
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" })
+    }, 100)
+  }
 
   return (
-    <header className={`fixed w-full z-50 ${
-      isScrolled ? 'bg-white/30 backdrop-blur-md transition-colors duration-300' : 'bg-transparent transition-colors duration-300'
-    }`}>
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-8" aria-label="Global">
+    <header
+      className={`fixed w-full z-50 ${
+        isScrolled
+          ? "bg-white/70 backdrop-blur-md transition-colors duration-300"
+          : "bg-transparent transition-colors duration-300"
+      }`}
+    >
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-8">
         {/* Logo */}
-        <div className="flex lg:flex-1">
-          <div onClick={handleLogoClick} className="-m-1.5 p-1.5 flex items-center gap-2 cursor-pointer">
-            <span className="sr-only">GRJ Group</span>
-            <div className=" p-1 opacity-90">
-            <img
-              className="h-15 w-auto  opacity-90"
-              src={assets.logoComp}
-              alt="GRJ Logo"
-            />
-            </div>
-          </div>
+        <div
+          onClick={handleLogoClick}
+          className={`-m-1.5 p-1.5 flex items-center gap-2 cursor-pointer transition-opacity duration-500 ${
+    isScrolled ? "opacity-100" : "opacity-0 pointer-events-none"
+  }`}
+        >
+          <span className="sr-only">GRJ Group</span>
+          <img
+            className="h-10 w-auto opacity-90"
+            src={assets.logoComp}
+            alt="GRJ Logo"
+          />
         </div>
 
-        {/* Mobile menu button */}
-        <div className="flex lg:hidden">
-          <button
-            type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-            onClick={() => setMobileMenuOpen(true)}
+        {/* Desktop Navigation */}
+        <NavigationMenu className="hidden lg:flex">
+          <NavigationMenuList className="flex items-center gap-8">
+            <NavigationMenuItem>
+              <HashLink
+                smooth
+                to="/#hero"
+                className={`flex items-center gap-2 text-sm font-semibold ${textColorClass}`}
+              >
+                <Home className="h-4 w-4" />
+                Home
+              </HashLink>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <HashLink
+                smooth
+                to="/#about-us"
+                className={`flex items-center gap-2 text-sm font-semibold ${textColorClass}`}
+              >
+                <Info className="h-4 w-4" />
+                About Us
+              </HashLink>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <HashLink
+                smooth
+                to="/#careers"
+                className={`flex items-center gap-2 text-sm font-semibold ${textColorClass}`}
+              >
+                <Briefcase className="h-4 w-4" />
+                Careers
+              </HashLink>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <HashLink
+                smooth
+                to="/#our-story"
+                className={`flex items-center gap-2 text-sm font-semibold ${textColorClass}`}
+              >
+                <Users className="h-4 w-4" />
+                Our Story
+              </HashLink>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <HashLink
+                smooth
+                to="/#contact"
+                className={`flex items-center gap-2 text-sm font-semibold ${textColorClass}`}
+              >
+                <Phone className="h-4 w-4" />
+                Contact Us
+              </HashLink>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+
+        {/* Desktop Button */}
+        <div className="hidden lg:flex">
+          <HashLink smooth to="#careers">
+          <Button
+            className="rounded-full bg-blue-700 text-white hover: hover:bg-blue-800 shadow-sm flex items-center gap-2"
           >
-            <span className="sr-only">Open main menu</span>
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-          </button>
-        </div>
-
-        {/* Desktop Menu */}
-        <PopoverGroup className="hidden lg:flex lg:items-center lg:gap-x-10">
-          {/* Product Popover */}
-          <Popover className="relative">
-            {({ open }) => (
-              <>
-                <PopoverButton
-                  className={`flex items-center gap-1 text-sm font-semibold transition-colors duration-300 ${textColorClass}`}
-                >
-                  Product
-                  <ChevronDownIcon
-                    className={`h-4 w-4 text-gray-400 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
-                    aria-hidden="true"
-                  />
-                </PopoverButton>
-
-                <PopoverPanel className="absolute left-1/2 z-10 mt-3 w-screen max-w-md -translate-x-1/2 rounded-3xl bg-white dark:bg-gray-900 shadow-lg ring-1 ring-gray-900/5">
-                  <div className="p-4">
-                    {products.map((item) => (
-                      <div
-                        key={item.name}
-                        className="group relative flex items-center gap-x-4 rounded-lg p-4 hover:bg-gray-50 dark:hover:bg-gray-800"
-                      >
-                        <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-gray-50 dark:bg-gray-800 group-hover:bg-white dark:group-hover:bg-gray-700">
-                          <item.icon className="h-6 w-6 text-gray-600 dark:text-gray-300 group-hover:text-indigo-600" />
-                        </div>
-                        <div>
-                          <a href={item.href} className="block font-semibold text-gray-900 dark:text-white">
-                            {item.name}
-                            <span className="absolute inset-0" />
-                          </a>
-                          <p className="mt-1 text-gray-600 dark:text-gray-400">{item.description}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="grid grid-cols-2 divide-x divide-gray-200 dark:divide-gray-800 bg-gray-50 dark:bg-gray-800">
-                    {callsToAction.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-                      >
-                        <item.icon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-                        {item.name}
-                      </a>
-                    ))}
-                  </div>
-                </PopoverPanel>
-              </>
-            )}
-          </Popover>
-
-          {/* Static Links */}
-          <HashLink
-            smooth
-            to="/#contact"
-            className={`text-sm font-semibold transition-colors duration-300 ${textColorClass}`}
-          >
-            Contact
+            <Rocket className="h-4 w-4" />
+            Apply Now
+          </Button>
           </HashLink>
-          <Link
-            to="/careers"
-            className={`text-sm font-semibold transition-colors duration-300 ${textColorClass}`}
-          >
-            Careers
-          </Link>
-          <HashLink
-            smooth
-            to="/#about-us"
-            className={`text-sm font-semibold transition-colors duration-300 ${textColorClass}`}
-          >
-            About Us
-          </HashLink>
-        </PopoverGroup>
-
-        {/* Login Button */}
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <BasicButtons/>
         </div>
-      </nav>
 
-      {/* Mobile menu */}
-      <Dialog as="div" open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
-        <div className="fixed inset-0 z-50" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full max-w-sm overflow-y-auto bg-white dark:bg-gray-900 p-6 sm:ring-1 sm:ring-gray-900/10">
-          <div className="flex items-center justify-between">
-            <div  onClick={() => {
-                handleLogoClick();
-                setMobileMenuOpen(false); // Close mobile menu too
-              }} className="-m-1.5 p-1.5 cursor-pointer">
-              <span className="sr-only">GRJ Group</span>
-              <img
-                className="h-8 w-auto opacity-90"
-                src={assets.logoComp}
-                alt="GRJ Logo"
-              />
-            </div>
-            <button
-              type="button"
-              className="-m-2.5 rounded-md p-2.5 text-gray-700 dark:text-white"
-              onClick={() => setMobileMenuOpen(false)}
+        {/* Mobile Menu (Sheet) */}
+        <div className="lg:hidden">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-gray-900 hover:bg-gray-90"
+              >
+                <Menu className="h-6 w-6" />
+              </Button>
+            </SheetTrigger>
+
+            <SheetContent
+              side="right"
+              className="w-80 sm:w-96 flex flex-col"
             >
-              <span className="sr-only">Close menu</span>
-              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-            </button>
-          </div>
+              <SheetHeader className="flex items-center justify-between border-b pb-2">
+                <SheetTitle className="flex items-center justify-between w-full">
+                  <img
+                    onClick={() => handleLogoClick()}
+                    src={assets.logoComp}
+                    alt="GRJ Logo"
+                    className="h-8 cursor-pointer"
+                  />
+                </SheetTitle>
+              </SheetHeader>
 
-          <div className="mt-6">
-            <Disclosure>
-              {({ open }) => (
-                <>
-                  <DisclosureButton className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-base font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                    Product
-                    <ChevronDownIcon
-                      className={`h-5 w-5 transform transition-transform ${open ? 'rotate-180' : ''}`}
-                    />
-                  </DisclosureButton>
-                  <DisclosurePanel className="mt-2 space-y-2">
-                    {[...products, ...callsToAction].map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className="block rounded-lg px-6 py-2 text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
-                      >
-                        {item.name}
-                      </a>
-                    ))}
-                  </DisclosurePanel>
-                </>
-              )}
-            </Disclosure>
+              {/* Scrollable Nav Links */}
+              <nav className="mt-6 flex-1 overflow-y-auto space-y-3">
+                <SheetClose asChild>
+                  <HashLink
+                    smooth
+                    to="/#home"
+                    className="flex items-center gap-3 text-base font-semibold text-gray-900 hover:text-indigo-600 transition-colors px-2 py-1"
+                  >
+                    <Home className="h-5 w-5" />
+                    Home
+                  </HashLink>
+                </SheetClose>
 
-            <HashLink smooth
-            to="/#contact" className="block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-              Contact
-            </HashLink>
-            <Link to="/careers" className="block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-              Careers
-            </Link>
-            <HashLink smooth
-             to="/#about-us" className="block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-              About Us
-            </HashLink>
+                <SheetClose asChild>
+                  <HashLink
+                    smooth
+                    to="/#about-us"
+                    className="flex items-center gap-3 text-base font-semibold text-gray-900 hover:text-indigo-600 transition-colors px-2 py-1"
+                  >
+                    <Info className="h-5 w-5" />
+                    About Us
+                  </HashLink>
+                </SheetClose>
 
-            <div className="mt-6">
-              <a href="#" className="block rounded-lg px-3 py-2.5 text-base font-semibold text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                Apply Now
-              </a>
-            </div>
-          </div>
-        </DialogPanel>
-      </Dialog>
+                
+
+                <SheetClose asChild>
+                  <HashLink
+                    smooth
+                    to="/careers"
+                    className="flex items-center gap-3 text-base font-semibold text-gray-900 hover:text-indigo-600 transition-colors px-2 py-1"
+                  >
+                    <Briefcase className="h-5 w-5" />
+                    Careers
+                  </HashLink>
+                </SheetClose>
+
+                <SheetClose asChild>
+                  <HashLink
+                    smooth
+                    to="/#our-story"
+                    className="flex items-center gap-3 text-base font-semibold text-gray-900 hover:text-indigo-600 transition-colors px-2 py-1"
+                  >
+                    <Users className="h-5 w-5" />
+                    Our Story
+                  </HashLink>
+                </SheetClose>
+
+                <SheetClose asChild>
+                  <HashLink
+                    smooth
+                    to="/#contact"
+                    className="flex items-center gap-3 text-base font-semibold text-gray-900 hover:text-indigo-600 transition-colors px-2 py-1"
+                  >
+                    <Phone className="h-5 w-5" />
+                    Contact Us
+                  </HashLink>
+                </SheetClose>
+              </nav>
+
+              {/* Bottom Button */}
+              <div className="mt-6 pb-4">
+                <SheetClose asChild>
+                  <Button
+                    onClick={() => navigate("/carrers")}
+                    className="w-full rounded-full bg-indigo-600 hover:bg-indigo-700 text-white flex items-center justify-center gap-2"
+                  >
+                    <Rocket className="h-5 w-5" />
+                    Apply Now
+                  </Button>
+                </SheetClose>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
+      </div>
     </header>
-  );
+  )
 }
 
-export default Navbar;
+export default Navbar

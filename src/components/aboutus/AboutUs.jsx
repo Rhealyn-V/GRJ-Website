@@ -1,20 +1,19 @@
 import React from 'react'
 import { HashLink } from 'react-router-hash-link';
-import { Link } from 'react-router-dom';
+
+
 const stats = [
   { name: 'Offices worldwide', value: '23' },
   { name: 'Full-time colleagues', value: '400+' },
   { name: 'Hours per week', value: '40' },
-  { name: 'Schedule', value: <Link to="/Office_Hours" target='blank' className="hover:text-sky-700">Office Hours</Link> },
+  { name: 'Schedule', value: <HashLink to="/Office_Hours" target='blank' className="hover:text-sky-700">Office Hours</HashLink> },
 ]
 function AboutUs() {
   return (
-    <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32" id="about-us">
-      <img
-        alt=""
-        src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-y=.8&w=2830&h=1500&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply"
-        className="absolute inset-0 -z-10 size-full object-cover object-right md:object-center"
-      />
+    <div className="relative isolate bg-gradient-to-r from-sky-700 via-sky-800 to-gray-900 py-50 px-6 lg:px-8" id="about-us">
+      {/* Background */}
+      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&q=80')] opacity-20 bg-cover bg-center" />
+
       <div
         aria-hidden="true"
         className="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"

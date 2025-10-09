@@ -1,39 +1,138 @@
+import React from "react";
+import { Building, Building2, Landmark } from "lucide-react";
 
 function Footer() {
   return (
-    <footer className="text-black body-font bg-sky-700">
-   
-    <div class="container mx-auto py-2 px-2 flex flex-wrap flex-col sm:flex-row">
-      <p class="text-black text-sm text-center sm:text-left">© 2025 GRJ Group of Company —
-        <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" class="text-black ml-1" target="_blank">@grj.com.ph</a>
-      </p>
-      <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
-        <a class="text-black">
-          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-          </svg>
-        </a>
-        <a class="ml-3 text-black">
-          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-          </svg>
-        </a>
-        <a class="ml-3 text-black">
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
-          </svg>
-        </a>
-        <a class="ml-3 text-black">
-          <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
-            <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
-            <circle cx="4" cy="4" r="2" stroke="none"></circle>
-          </svg>
-        </a>
-      </span>
-    </div>
-</footer>
-  )
+    <footer className="bg-white text-black border-t border-gray-200 w-full">
+      {/* Footer Top */}
+      <div className="container mx-auto px-10 py-20 grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left">
+        
+        {/* Main Office */}
+        <div>
+          <li className="flex items-center justify-center sm:justify-start space-x-2 text-center sm:text-left">
+            <Building className="w-5 h-5" />
+            <a className="space-y-4 text-sm">
+              Main Office
+            </a>
+          </li>
+          <ul className="space-y-4 text-sm mt-4">
+            <li>
+              <a
+                href="https://maps.google.com/?q=KM+27+Aguinaldo+Highway+Salitran+1+Dasmariñas+City"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-sky-600 transition"
+              >
+                KM 27 Aguinaldo Highway,<br />
+                Salitran 1, Dasmariñas City
+              </a>
+            </li>
+            <li>
+              <span>
+                <strong>Tel.No:</strong> (046) 471-6868 / 424-782
+              </span>
+            </li>
+            <li>
+              <span>
+                <strong>Fax.No:</strong> (046) 471-4969
+              </span>
+            </li>
+            <li>
+              <span>
+                <strong>Email:</strong> gjaro29@gmail.com
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        {/* Company */}
+        <div>
+           <li className="flex items-center justify-center sm:justify-start space-x-2 text-center sm:text-left">
+            <Building2 className="w-5 h-5" />
+            <a className="space-y-4 text-sm">
+             Company
+            </a>
+          </li>
+         
+          <ul className=" text-sm mt-4">
+            <li>
+              <a
+                href="https://www.facebook.com/p/GRJ-Jaro-Pawnshop-Corp-100067998025076/"
+                className="hover:text-sky-600"
+                target="_blank"
+              >
+                GRJ Jaro Pawnshop
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/p/GRJ-JARO-Readymix-Corp-100064041009731/"
+                className="hover:text-sky-600"
+                target="_blank"
+              >
+                GRJ Jaro Readymix
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://kansaiueno.grj.com.ph/index.php"
+                className="hover:text-sky-600"
+                target="_blank"
+              >
+                Kansai Ueno
+              </a>
+            </li>
+            <li>
+              <span className="hover:text-sky-600 cursor-pointer">
+                South4 Builders
+              </span>
+            </li>
+            <li>
+              <a
+                href="https://jaromed.com.ph/"
+                className="hover:text-sky-600"
+                target="_blank"
+              >
+                Jaromed
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        {/* Law Firm */}
+        <div>
+          <li className="flex items-center justify-center sm:justify-start space-x-2 text-center sm:text-left">
+            <Landmark className="w-5 h-5" />
+            <a className="space-y-4 text-sm">
+             Law Firm
+            </a>
+          </li>
+          <ul className="space-y-2 text-sm mt-4">
+            <li>
+              <a
+                href="https://www.google.com/maps/place/PJP+Law+Offices/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-sky-600 font-bold"
+              >
+                PALAD JARO-PALAD LAW OFFICES
+              </a>
+            </li>
+              <li><a href="https://www.google.com/maps/place/PJP+Law+Offices/..." target="_blank" className="text-black hover:text-sky-600">Unit 2-D LCVM (Lucila) Building, Km 31 Aguinaldo Highway<br/>Pasong Tala, Brgy. Zone IV, Dasmariñas City, Cavite</a></li>
+              <li><a className="text-black "><strong>Telefax:</strong> (046) 416-5211</a></li>
+              <li><a className="text-black "><strong>Mobile:</strong> +639257120756</a></li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Footer Bottom */}
+      <div className="bg-gray-100 text-center py-4 border-t border-gray-200">
+        <p className="text-sm text-gray-600">
+          © {new Date().getFullYear()} GRJ Group of Companies. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  );
 }
 
-export default Footer
+export default Footer;

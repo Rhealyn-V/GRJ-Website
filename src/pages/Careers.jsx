@@ -1,172 +1,150 @@
-
-import { assets } from "../assets/assets.js";
-
-
-import {
-  FaTruck,
-  FaHardHat,
-  FaUserMd,
-  FaUserNurse,
-  FaMicroscope,
-  FaDraftingCompass,
-  FaProjectDiagram,
-  FaCashRegister,
-  FaUserTie,
-  FaUsers,
-  FaWarehouse,
-  FaChartLine,
-  FaLaptopCode,
-  FaClipboardList,
-} from "react-icons/fa";
-
+import React, { useState } from "react";
+import { Briefcase, Truck, Users, X } from "lucide-react";
 
 function Careers() {
-  const careers = [
+  const [selectedRole, setSelectedRole] = useState(null);
+
+  const roles = [
     {
-      title: "GRJ Enterprise",
-      logo: assets.Enterprise,
-      background: assets.buildingLogo,
-      color: "from-sky-700 to-sky-700",
-      link: "",
-      roles: [
-        { icon: <FaClipboardList />, label: "Distributors" },
-        { icon: <FaLaptopCode />, label: "IT Support Specialist" },
-        { icon: <FaChartLine />, label: "Business Development Officer" },
-        { icon: <FaProjectDiagram />, label: "Logistics Coordinator" },
+      title: "Sales Officer",
+      icon: <Briefcase className="w-6 h-6 text-sky-600" />,
+      description:
+        "As a Sales Officer, you will be responsible for developing sales strategies, building customer relationships, and ensuring sales targets are met. Strong communication and negotiation skills are required.",
+      requirements: [
+        "Bachelor's degree in Business or related field.",
+        "Proven experience in sales or customer service.",
+        "Excellent communication and interpersonal skills.",
+        "Ability to work independently and as part of a team.",
       ],
     },
     {
-      title: "GRJ ReadyMix",
-      logo: assets.Readymix,
-      color: "from-emerald-700 to-emerald-700",
-      background: assets.Readymix_background,
-      link: "https://www.facebook.com/p/GRJ-JARO-Readymix-Corp-100064041009731/",
-      roles: [
-        { icon: <FaProjectDiagram />, label: "Readymix" },
-        { icon: <FaTruck />, label: "Truck Driver" },
-        { icon: <FaHardHat />, label: "Plant Operator" },
-        { icon: <FaHardHat />, label: "Quality Control Engineer" },
-        { icon: <FaProjectDiagram />, label: "Logistics Coordinator" },
+      title: "Trailer Driver",
+      icon: <Truck className="w-6 h-6 text-sky-600" />,
+      description:
+        "As a Trailer Driver, you will be tasked with transporting goods safely and efficiently. A strong focus on road safety and time management is essential.",
+      requirements: [
+        "Valid professional driver’s license (with trailer restriction).",
+        "At least 2 years of driving experience.",
+        "Knowledge of traffic laws and road safety regulations.",
+        "Strong sense of responsibility and punctuality.",
       ],
     },
     {
-      title: "Jaromed Medical Clinic",
-      logo: assets.Jaromed,
-      color: "from-blue-700 to-green-500",
-      background: assets.Jaromed_background,  
-      link: "https://jaromed.com.ph/",
-      roles: [
-        { icon: <FaUserMd />, label: "Medical Doctor" },
-        { icon: <FaUserNurse />, label: "Registered Nurse" },
-        { icon: <FaMicroscope />, label: "Medical Technologist" },
-        { icon: <FaUsers />, label: "Patient Relations Officer" },
+      title: "Mixer Driver",
+      icon: <Truck className="w-6 h-6 text-sky-600" />,
+      description:
+        "As a Mixer Driver, you will operate concrete mixer trucks to deliver ready-mix concrete to project sites. You must ensure proper handling and timely delivery.",
+      requirements: [
+        "Professional driver’s license with proper restriction code.",
+        "Experience in operating mixer trucks preferred.",
+        "Basic mechanical knowledge for vehicle troubleshooting.",
+        "Ability to follow instructions and safety procedures.",
       ],
     },
     {
-      title: "South4 Builders",
-      logo: assets.South4Builders,
-      color: "from-red-700 to-gray-900",
-      background: assets.South4buildersbackground,
-      link: "",
-      roles: [
-        { icon: <FaHardHat />, label: "Construction" },
-        { icon: <FaHardHat />, label: "Civil Engineer" },
-        { icon: <FaDraftingCompass />, label: "Architect" },
-        { icon: <FaProjectDiagram />, label: "Project Manager" },
-        { icon: <FaHardHat />, label: "Site Supervisor" },
+      title: "Bulk Driver",
+      icon: <Truck className="w-6 h-6 text-sky-600" />,
+      description:
+        "As a Bulk Driver, you will deliver bulk construction materials to different locations, ensuring safe and efficient transportation.",
+      requirements: [
+        "Valid driver’s license for bulk truck operation.",
+        "Experience in bulk material delivery.",
+        "Good navigational skills.",
+        "Strong commitment to safety.",
       ],
     },
     {
-      title: "GRJ Pawnshop",
-      logo: assets.Pawnshop,
-      color: "from-red-700 to-red-700",
-      background: assets.Pawnshop_background,
-      link: "/pawnshop",
-      roles: [
-        { icon: <FaCashRegister />, label: "Cashier" },
-        { icon: <FaUserTie />, label: "Appraiser" },
-        { icon: <FaUsers />, label: "Customer Service Representative" },
-        { icon: <FaProjectDiagram />, label: "Branch Manager" },
+      title: "Site Coordinator",
+      icon: <Users className="w-6 h-6 text-sky-600" />,
+      description:
+        "As a Site Coordinator, you will oversee project site operations, coordinate teams, and ensure work progress aligns with project goals.",
+      requirements: [
+        "Bachelor’s degree in Engineering or related field.",
+        "Experience in site coordination or supervision.",
+        "Strong leadership and organizational skills.",
+        "Ability to manage multiple tasks effectively.",
       ],
     },
     {
-      title: "Kansai Ueno",
-      logo: assets.KansaiUeno,
-      color: "from-green-500 to-green-700",
-      background: assets.kansai,
-      link: "https://kansaiueno.grj.com.ph/index.php",
-      roles: [
-        { icon: <FaWarehouse />, label: "Warehouse Staff" },
-        { icon: <FaProjectDiagram />, label: "Production Operator" },
-        { icon: <FaHardHat />, label: "Quality Assurance Specialist" },
-        { icon: <FaChartLine />, label: "Buy and Sell" },
+      title: "Collector",
+      icon: <Users className="w-6 h-6 text-sky-600" />,
+      description:
+        "As a Collector, you will be responsible for handling payments, following up on receivables, and maintaining accurate records.",
+      requirements: [
+        "At least High School graduate, college level preferred.",
+        "Experience in collection or related field.",
+        "Good communication and negotiation skills.",
+        "Ability to work under pressure.",
       ],
     },
-  ];
+  ]
 
   return (
-    <div className="bg-gray-50 py-40 px-6 md:px-16" id="careers">
-      <h2 className="text-4xl font-bold text-center text-gray-700 mb-15">
-        CAREER OPPORTUNITIES
-      </h2>
+    <div className="relative isolate bg-gradient-to-r from-sky-700 via-sky-800 to-gray-900 py-50 px-6 lg:px-8" id="careers">
+      {/* Background */}
+      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1549923746-c502d488b3ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')] opacity-20 bg-cover bg-center" />
 
-      {/* Cards Grid */}
-      <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-2">
-        {careers.map((career, index) => (
+      {/* Header */}
+      <div className="relative z-10 mx-auto max-w-4xl text-center">
+        <h2 className="text-4xl font-extrabold text-white sm:text-5xl drop-shadow-lg">
+          We Are Hiring!
+        </h2>
+        <p className="mt-4 text-lg text-gray-200">
+          Join our growing team and be part of GRJ Jaro Enterprise Inc.
+        </p>
+      </div>
+
+      {/* Roles Grid */}
+      <div className="relative z-10 mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {roles.map((role, idx) => (
           <div
-            key={index}
-            className="relative rounded-2xl shadow-lg p-6 border border-gray-200 hover:shadow-2xl transform hover:-translate-y-2 transition duration-300 overflow-hidden"
-            style={{
-              backgroundImage: `url(${career.background})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
+            key={idx}
+            className="flex items-center gap-4 rounded-xl bg-white/90 p-6 shadow-lg backdrop-blur hover:shadow-2xl hover:-translate-y-1 transition duration-300 cursor-pointer"
+            onClick={() => setSelectedRole(role)}
           >
-            {/* Logo + Title */}
-            <div className="flex items-center mb-6 space-x-4">
-              <img
-                src={career.logo}
-                alt={`${career.title} Logo`}
-                className="w-30 h-auto object-contain "
-              />
-              <h3
-                className={`text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${career.color}`}
-              >
-              </h3>
-            </div>
-
-            {/* Roles */}
-        <div className="w-full md:w-3/4 lg:w-1/2 h-auto mb-6 rounded-xl bg-white/80 dark:bg-black/60 p-4 shadow-md">
-          <ul className="space-y-3">
-            {career.roles.map((role, idx) => (
-              <li
-                key={idx}
-                className="flex items-center text-gray-900 dark:text-white hover:text-sky-500 transition duration-200"
-              >
-                <span className="text-lg mr-3">{role.icon}</span>
-                {role.label}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-
-
-            {/* Apply Button */}
-           <div className="flex justify-end"> 
-            <a
-              href={career.link}
-              target="_blank"
-              rel="noopener noreferrer"
-                className=" rounded-lg px-3 py-2 text-base font-bold text-gray-900 dark:text-white bg-white/60 dark:bg-black/60 hover:bg-sky-500 hover:text-white border border-gray-300 hover:border-transparent transition duration-300 inline-flex items-center">           
-              Explore Careers <span className="ml-2">→</span>
-            </a>
-          </div>
+            <div className="flex-shrink-0">{role.icon}</div>
+            <h3 className="text-lg font-semibold text-gray-900">{role.title}</h3>
           </div>
         ))}
       </div>
+
+      {/* Modal */}
+      {selectedRole && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/50 backdrop-blur-sm">
+          <div className="bg-white rounded-2xl shadow-xl max-w-lg w-full p-6 relative">
+            {/* Close */}
+            <button
+              onClick={() => setSelectedRole(null)}
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-800"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            <h2 className="text-center text-2xl font-bold text-gray-900 mb-4">
+              {selectedRole.title}
+            </h2>
+            <p className="text-gray-700 mb-6 leading-relaxed">
+              {selectedRole.description}
+            </p>
+            <p className="text-gray-700 mb-4 leading-relaxed">
+              Requirements:
+              <ul className="list-disc list-inside mt-2">
+                {selectedRole.requirements.map((req, i) => (
+                  <li key={i}>{req}</li>
+                ))}
+              </ul>
+            </p>
+
+            <div className="flex justify-end">
+              <button className="px-5 py-2 bg-sky-600 text-white rounded-lg font-semibold shadow hover:bg-sky-500 transition">
+                Apply Now
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
 
-export default Careers;
+export default Careers
