@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Link, useLocation, useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import { HashLink } from "react-router-hash-link"
 import { assets } from "../../assets/assets.js"
 import { Button } from "@/components/ui/button"
@@ -23,7 +23,7 @@ import {
   Users,
   Phone,
   Briefcase,
-  Rocket,
+  FileText,
 } from "lucide-react"
 
 function Navbar() {
@@ -36,7 +36,7 @@ function Navbar() {
   const textColorClass = isLightBgPage
     ? "text-gray-800 hover:text-gray-900"
     : isScrolled
-    ? "text-gray-800 hover:text-gray-900"
+    ? "text-white hover:text-gray-200"
     : "text-white hover:text-gray-200"
 
   useEffect(() => {
@@ -56,7 +56,7 @@ function Navbar() {
     <header
       className={`fixed w-full z-50 ${
         isScrolled
-          ? "bg-white/70 backdrop-blur-md transition-colors duration-300"
+          ? "bg-white/10 dark:bg-white/5  backdrop-blur-md shadow-lg transition-colors duration-300 "
           : "bg-transparent transition-colors duration-300"
       }`}
     >
@@ -82,10 +82,10 @@ function Navbar() {
             <NavigationMenuItem>
               <HashLink
                 smooth
-                to="/#hero"
-                className={`flex items-center gap-2 text-sm font-semibold ${textColorClass}`}
+                to="/#home"
+                className={`flex items-center gap-2 text-sm font-semibold  ${textColorClass}`}
               >
-                <Home className="h-4 w-4" />
+                <Home className="text-indigo-400 h-4 w-4" />
                 Home
               </HashLink>
             </NavigationMenuItem>
@@ -94,9 +94,9 @@ function Navbar() {
               <HashLink
                 smooth
                 to="/#about-us"
-                className={`flex items-center gap-2 text-sm font-semibold ${textColorClass}`}
+                className={`flex items-center gap-2 text-sm font-semibold  ${textColorClass}`}
               >
-                <Info className="h-4 w-4" />
+                <Info className="text-indigo-400 h-4 w-4" />
                 About Us
               </HashLink>
             </NavigationMenuItem>
@@ -105,9 +105,9 @@ function Navbar() {
               <HashLink
                 smooth
                 to="/#careers"
-                className={`flex items-center gap-2 text-sm font-semibold ${textColorClass}`}
+                className={`flex items-center gap-2 text-sm font-semibold  ${textColorClass}`}
               >
-                <Briefcase className="h-4 w-4" />
+                <Briefcase className="text-indigo-400 h-4 w-4" />
                 Careers
               </HashLink>
             </NavigationMenuItem>
@@ -115,10 +115,10 @@ function Navbar() {
             <NavigationMenuItem>
               <HashLink
                 smooth
-                to="/#our-story"
-                className={`flex items-center gap-2 text-sm font-semibold ${textColorClass}`}
+                to="/#ourstory"
+                className={`flex items-center gap-2 text-sm font-semibold  ${textColorClass}`}
               >
-                <Users className="h-4 w-4" />
+                <Users className="text-indigo-400 h-4 w-4" />
                 Our Story
               </HashLink>
             </NavigationMenuItem>
@@ -127,9 +127,9 @@ function Navbar() {
               <HashLink
                 smooth
                 to="/#contact"
-                className={`flex items-center gap-2 text-sm font-semibold ${textColorClass}`}
+                className={`flex items-center gap-2 text-sm font-semibold  ${textColorClass}`}
               >
-                <Phone className="h-4 w-4" />
+                <Phone className="text-indigo-400 h-4 w-4" />
                 Contact Us
               </HashLink>
             </NavigationMenuItem>
@@ -138,14 +138,13 @@ function Navbar() {
 
         {/* Desktop Button */}
         <div className="hidden lg:flex">
-          <HashLink smooth to="#careers">
           <Button
-            className="rounded-full bg-blue-700 text-white hover: hover:bg-blue-800 shadow-sm flex items-center gap-2"
+            onClick={() => navigate("/apply")}
+            className="rounded-full bg-indigo-600 text-white hover:bg-indigo-700 shadow-sm flex items-center gap-2 "
           >
-            <Rocket className="h-4 w-4" />
+            <FileText className="h-4 w-4" />
             Apply Now
           </Button>
-          </HashLink>
         </div>
 
         {/* Mobile Menu (Sheet) */}
@@ -243,7 +242,7 @@ function Navbar() {
                     onClick={() => navigate("/carrers")}
                     className="w-full rounded-full bg-indigo-600 hover:bg-indigo-700 text-white flex items-center justify-center gap-2"
                   >
-                    <Rocket className="h-5 w-5" />
+                    <FileText className="h-5 w-5" />
                     Apply Now
                   </Button>
                 </SheetClose>

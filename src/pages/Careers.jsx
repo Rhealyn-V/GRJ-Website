@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { Briefcase, Truck, Users, X } from "lucide-react";
+import { Button } from "@/components/ui/button"
+import Applybutton from "@/components/template/Applybutton"
+import { ArrowRight, Mail } from "lucide-react"
 
 function Careers() {
   const [selectedRole, setSelectedRole] = useState(null);
@@ -10,7 +13,8 @@ function Careers() {
       icon: <Briefcase className="w-6 h-6 text-sky-600" />,
       description:
         "As a Sales Officer, you will be responsible for developing sales strategies, building customer relationships, and ensuring sales targets are met. Strong communication and negotiation skills are required.",
-      requirements: [
+      location: "Batangas, Salitran, Cavite, Imus, Others",
+        requirements: [
         "Bachelor's degree in Business or related field.",
         "Proven experience in sales or customer service.",
         "Excellent communication and interpersonal skills.",
@@ -22,7 +26,8 @@ function Careers() {
       icon: <Truck className="w-6 h-6 text-sky-600" />,
       description:
         "As a Trailer Driver, you will be tasked with transporting goods safely and efficiently. A strong focus on road safety and time management is essential.",
-      requirements: [
+       location: "Batangas, Salitran, Cavite, Imus, Others",
+        requirements: [
         "Valid professional driver’s license (with trailer restriction).",
         "At least 2 years of driving experience.",
         "Knowledge of traffic laws and road safety regulations.",
@@ -34,7 +39,8 @@ function Careers() {
       icon: <Truck className="w-6 h-6 text-sky-600" />,
       description:
         "As a Mixer Driver, you will operate concrete mixer trucks to deliver ready-mix concrete to project sites. You must ensure proper handling and timely delivery.",
-      requirements: [
+       location: "Batangas, Salitran, Cavite, Imus, Others",
+        requirements: [
         "Professional driver’s license with proper restriction code.",
         "Experience in operating mixer trucks preferred.",
         "Basic mechanical knowledge for vehicle troubleshooting.",
@@ -46,7 +52,8 @@ function Careers() {
       icon: <Truck className="w-6 h-6 text-sky-600" />,
       description:
         "As a Bulk Driver, you will deliver bulk construction materials to different locations, ensuring safe and efficient transportation.",
-      requirements: [
+      
+        requirements: [
         "Valid driver’s license for bulk truck operation.",
         "Experience in bulk material delivery.",
         "Good navigational skills.",
@@ -86,7 +93,7 @@ function Careers() {
 
       {/* Header */}
       <div className="relative z-10 mx-auto max-w-4xl text-center">
-        <h2 className="text-4xl font-extrabold text-white sm:text-5xl drop-shadow-lg">
+        <h2 className="font-orbitron text-4xl text-white sm:text-5xl drop-shadow-lg">
           We Are Hiring!
         </h2>
         <p className="mt-4 text-lg text-gray-200">
@@ -104,13 +111,14 @@ function Careers() {
           >
             <div className="flex-shrink-0">{role.icon}</div>
             <h3 className="text-lg font-semibold text-gray-900">{role.title}</h3>
+            
           </div>
         ))}
       </div>
 
       {/* Modal */}
       {selectedRole && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/50 backdrop-blur-sm">
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/50 backdrop-blur-sm mt-16">
           <div className="bg-white rounded-2xl shadow-xl max-w-lg w-full p-6 relative">
             {/* Close */}
             <button
@@ -126,6 +134,10 @@ function Careers() {
             <p className="text-gray-700 mb-6 leading-relaxed">
               {selectedRole.description}
             </p>
+            <p className="text-gray-700 mb-6 leading-relaxed">
+              Location:<br/>{selectedRole.location}
+            </p>
+            
             <p className="text-gray-700 mb-4 leading-relaxed">
               Requirements:
               <ul className="list-disc list-inside mt-2">
@@ -136,9 +148,10 @@ function Careers() {
             </p>
 
             <div className="flex justify-end">
-              <button className="px-5 py-2 bg-sky-600 text-white rounded-lg font-semibold shadow hover:bg-sky-500 transition">
-                Apply Now
-              </button>
+          
+                <div className="flex justify-end">
+                  <Applybutton jobTitle={selectedRole.title} />
+                </div>
             </div>
           </div>
         </div>

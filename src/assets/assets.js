@@ -5,7 +5,7 @@ import logoComp from './images/GRJ COMP.png';
 import Pawnshop from './images/Pawnshop.jpg';
 import KansaiUeno from './images/Kansai Ueno.png';  
 import Readymix from './images/Readymix.png';
-import Enterprise from './images/Enterprise_without_background.png';
+import Enterprise from './images/Enterprise.jpg';
 import kansai from './images/Kansai_background.png';   
 import South4Builders from './images/South4-builders_without_background.png';
 import Jaromed_background from './images/Jaromed_background.png'; 

@@ -1,3 +1,6 @@
+
+
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -113,12 +116,26 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
 }
-
 @layer base {
+  @font-face {
+    font-family: "Orbitron";
+    src: url('./assets/fonts/Orbitron-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  /* Custom class for manual font use */
+  .font-orbitron {
+    font-family: "Orbitron", sans-serif;
+  }
+
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
+    
   }
 }
+

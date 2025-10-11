@@ -10,6 +10,7 @@ import Office_Hours from './components/aboutus/Office_Hours.jsx'
 import Pawnshop from './pages/Branch/Pawnshop.jsx'
 import Leadership from './components/aboutus/Leadership.jsx'
 import OurBusinesses from './pages/Ourbusinesses.jsx'
+import OurStory from './components/ourstory/OurStory.jsx'
 
 const App = () => {
 
@@ -27,6 +28,7 @@ const App = () => {
         <Route path='contact' element={<contactForm/>}/>
         <Route path='Leadership' element={<Leadership/>}/>
         <Route path='ourbusinesses' element={<OurBusinesses/>}/>
+        <Route path='ourstory' element={<OurStory />} />
       </Route>
     )
   )

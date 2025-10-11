@@ -1,65 +1,77 @@
-import React from "react";
-import { Building, Building2, Landmark } from "lucide-react";
+import React from "react"
+import { Building, Building2, Landmark } from "lucide-react"
 
 function Footer() {
   return (
-    <footer className="bg-white text-black border-t border-gray-200 w-full">
-      {/* Footer Top */}
-      <div className="container mx-auto px-10 py-20 grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left">
-        
-        {/* Main Office */}
+    <footer
+      id="footer"
+      className="relative w-full  bg-[#0f172a] overflow-hidden text-white"
+    >
+      {/* 🌌 Background Glow */}
+      {/* <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `radial-gradient(circle 600px at 50% 50%, rgba(30,47,57,0.4), transparent 70%)`,
+        }}
+      /> */}
+
+      {/* 💬 Footer Content */}
+      <div className="relative z-10 container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 text-center md:text-left">
+        {/* 🏢 Main Office */}
         <div>
-          <li className="flex items-center justify-center sm:justify-start space-x-2 text-center sm:text-left">
-            <Building className="w-5 h-5" />
-            <a className="space-y-4 text-sm">
+          <div className="flex items-center justify-center sm:justify-start space-x-2">
+            <Building className="w-5 h-5 text-indigo-400" />
+            <h3 className="text-sm font-semibold uppercase tracking-wide">
               Main Office
-            </a>
-          </li>
-          <ul className="space-y-4 text-sm mt-4">
+            </h3>
+          </div>
+
+          <ul className="mt-4 space-y-3 text-sm text-gray-300">
             <li>
               <a
                 href="https://maps.google.com/?q=KM+27+Aguinaldo+Highway+Salitran+1+Dasmariñas+City"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-sky-600 transition"
+                className="hover:text-sky-400 transition"
               >
-                KM 27 Aguinaldo Highway,<br />
+                KM 27 Aguinaldo Highway, <br />
                 Salitran 1, Dasmariñas City
               </a>
             </li>
             <li>
-              <span>
-                <strong>Tel.No:</strong> (046) 471-6868 / 424-782
-              </span>
+              <strong>Tel.No:</strong> (046) 471-6868 / 424-782
             </li>
             <li>
-              <span>
-                <strong>Fax.No:</strong> (046) 471-4969
-              </span>
+              <strong>Fax.No:</strong> (046) 471-4969
             </li>
             <li>
-              <span>
-                <strong>Email:</strong> gjaro29@gmail.com
-              </span>
+              <strong>Email:</strong>{" "}
+              <a
+                href="mailto:gjaro29@gmail.com"
+                className="hover:text-sky-400 transition"
+              >
+                gjaro29@gmail.com
+              </a>
             </li>
           </ul>
         </div>
 
-        {/* Company */}
+        {/* 🏭 Company Links */}
         <div>
-           <li className="flex items-center justify-center sm:justify-start space-x-2 text-center sm:text-left">
-            <Building2 className="w-5 h-5" />
-            <a className="space-y-4 text-sm">
-             Company
-            </a>
-          </li>
-         
-          <ul className=" text-sm mt-4">
+          <div className="flex items-center justify-center sm:justify-start space-x-2">
+            <Building2 className="w-5 h-5 text-indigo-400" />
+            <h3 className="text-sm font-semibold uppercase tracking-wide">
+              Company
+            </h3>
+          </div>
+
+          <ul className="mt-4 space-y-2 text-sm text-gray-300">
             <li>
               <a
                 href="https://www.facebook.com/p/GRJ-Jaro-Pawnshop-Corp-100067998025076/"
-                className="hover:text-sky-600"
                 target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-sky-400 transition"
               >
                 GRJ Jaro Pawnshop
               </a>
@@ -67,8 +79,9 @@ function Footer() {
             <li>
               <a
                 href="https://www.facebook.com/p/GRJ-JARO-Readymix-Corp-100064041009731/"
-                className="hover:text-sky-600"
                 target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-sky-400 transition"
               >
                 GRJ Jaro Readymix
               </a>
@@ -76,22 +89,24 @@ function Footer() {
             <li>
               <a
                 href="https://kansaiueno.grj.com.ph/index.php"
-                className="hover:text-sky-600"
                 target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-sky-400 transition"
               >
                 Kansai Ueno
               </a>
             </li>
             <li>
-              <span className="hover:text-sky-600 cursor-pointer">
+              <span className="hover:text-sky-400 cursor-pointer transition">
                 South4 Builders
               </span>
             </li>
             <li>
               <a
                 href="https://jaromed.com.ph/"
-                className="hover:text-sky-600"
                 target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-sky-400 transition"
               >
                 Jaromed
               </a>
@@ -99,40 +114,46 @@ function Footer() {
           </ul>
         </div>
 
-        {/* Law Firm */}
+        {/* ⚖️ Law Firm */}
         <div>
-          <li className="flex items-center justify-center sm:justify-start space-x-2 text-center sm:text-left">
-            <Landmark className="w-5 h-5" />
-            <a className="space-y-4 text-sm">
-             Law Firm
-            </a>
-          </li>
-          <ul className="space-y-2 text-sm mt-4">
+          <div className="flex items-center justify-center sm:justify-start space-x-2">
+            <Landmark className="w-5 h-5 text-indigo-400" />
+            <h3 className="text-sm font-semibold uppercase tracking-wide">
+              Law Firm
+            </h3>
+          </div>
+
+          <ul className="mt-4 space-y-2 text-sm text-gray-300">
+            <li className="font-bold">PALAD JARO-PALAD LAW OFFICES</li>
             <li>
               <a
                 href="https://www.google.com/maps/place/PJP+Law+Offices/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-sky-600 font-bold"
+                className="hover:text-sky-400 transition"
               >
-                PALAD JARO-PALAD LAW OFFICES
+                Unit 2-D LCVM (Lucila) Building, Km 31 Aguinaldo Highway <br />
+                Pasong Tala, Brgy. Zone IV, Dasmariñas City, Cavite
               </a>
             </li>
-              <li><a href="https://www.google.com/maps/place/PJP+Law+Offices/..." target="_blank" className="text-black hover:text-sky-600">Unit 2-D LCVM (Lucila) Building, Km 31 Aguinaldo Highway<br/>Pasong Tala, Brgy. Zone IV, Dasmariñas City, Cavite</a></li>
-              <li><a className="text-black "><strong>Telefax:</strong> (046) 416-5211</a></li>
-              <li><a className="text-black "><strong>Mobile:</strong> +639257120756</a></li>
+            <li>
+              <strong>Telefax:</strong> (046) 416-5211
+            </li>
+            <li>
+              <strong>Mobile:</strong> +639257120756
+            </li>
           </ul>
         </div>
       </div>
 
-      {/* Footer Bottom */}
-      <div className="bg-gray-100 text-center py-4 border-t border-gray-200">
-        <p className="text-sm text-gray-600">
+      {/* 📜 Footer Bottom */}
+      <div className="relative z-10 text-center py-8 border-t border-gray-700 mt-12">
+        <p className="text-sm text-gray-400">
           © {new Date().getFullYear()} GRJ Group of Companies. All rights reserved.
         </p>
       </div>
     </footer>
-  );
+  )
 }
 
-export default Footer;
+export default Footer
